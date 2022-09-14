@@ -1,11 +1,6 @@
 import { Model, DataTypes } from "sequelize";
+import { RoleName } from "../configs/interfaces/role.interface";
 import sequelize from "../sequelize";
-
-export enum RoleName {
-  adminRole = "adminRole",
-  moderatorRole = "moderatorRole",
-  userRole = "userRole",
-}
 
 export interface RoleModelProps extends Model {
   readonly id: number;
