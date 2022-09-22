@@ -20,4 +20,18 @@ const RoleModel = sequelize.define<RoleModelProps>("role", {
   },
 });
 
+RoleModel.sync().then(() => {
+  RoleModel.findOrCreate({
+    defaults: { roleName: RoleName.adminRole },
+    where: { roleName: RoleName.adminRole },
+  });
+  RoleModel.findOrCreate({
+    defaults: { roleName: RoleName.userRole },
+    where: { roleName: RoleName.userRole },
+  });
+  RoleModel.findOrCreate({
+    defaults: { roleName: RoleName.moderatorRole },
+    where: { roleName: RoleName.moderatorRole },
+  });
+});
 export default RoleModel;

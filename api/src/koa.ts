@@ -16,3 +16,8 @@ app.use(compress);
 app.use(logger);
 const router = new Router<DefaultState, Context>();
 router.use(routerIndex);
+
+/** Error handler */
+app.on("error", (error) => console.error(error));
+
+export default app;
